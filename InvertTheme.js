@@ -26,18 +26,26 @@ function getStyle(className_) {
                 if(ret.indexOf(classes[x].selectorText) == -1){
                     ret = classes[x].selectorText + "{" + ret + "}";
                 }
-                return ret;
+                return [ret, i, x];
             }
         }
     }
 }
 
-function addAttributeToStyle(className_, attribute, value) {
-    var cssRule = getStyle(className_)
+function addAttributeToStyle(cssRule, attribute, value) {
     cssRule=cssRule.replace("}", attribute + ":" + value + ";}")
     return cssRule
 }
 
+function addCSSRule(className, attributes){
+    var items = getStyle(className)
+    var cssRule = items[0]
+    Object.keys(attributes).forEach((elem)=>{
+        cssRule = addAttributeToStyle(cssRule, elem, attributes[elem])
+    })
+    document.styleSheets[items[1]].deleteRule(items[2])
+    document.styleSheets[items[1]].insertRule(cssRule, items[2])
+}
 
 
 
@@ -76,7 +84,7 @@ checkVersion().then((versionSIEM)=>{
             document.querySelector("mc-navbar").style.filter=invert 
         })
         //Select field in navbar
-        document.styleSheets[1].insertRule(addAttributeToStyle('.mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active', "-webkit-filter", "invert(1)"), 0);
+        addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
 
         // // //онли значки меняем
         // awaitElements('.pt-icons', ()=>{
@@ -86,7 +94,9 @@ checkVersion().then((versionSIEM)=>{
         //.mc-label
         //.mc
         //.mc, .pt-icons
-        document.styleSheets[1].insertRule(addAttributeToStyle('.mc-check_16', "-webkit-filter", "invert(1)"), 0);
+        // addCSSRule(".pt-icons", {"-webkit-filter": "invert(1)"})
+        // addCSSRule(".mc-check_16", {"-webkit-filter": "invert(1)"})
+
         // awaitElements('.pt-icons-check_16', ()=>{
         //     document.styleSheets[1].insertRule(addAttributeToStyle('.pt-icons-check_16', "-webkit-filter", "invert(1)"), 0);
         // })
