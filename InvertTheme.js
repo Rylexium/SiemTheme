@@ -86,6 +86,10 @@ checkVersion().then((versionSIEM)=>{
         //Select field in navbar
         addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
 
+        //event scroll, here change all elements
+        document.querySelector("#\\31 693764353912-body-grid-container > div.ui-grid-viewport.ng-isolate-scope").addEventListener("scroll", function(){console.log("scroll!!")})
+
+
         // // //онли значки меняем
         // awaitElements('.pt-icons', ()=>{
         //     document.styleSheets[1].insertRule(addAttributeToStyle('.pt-icons', "-webkit-filter", "invert(1)"), 0);
