@@ -205,6 +205,11 @@ checkVersion().then((versionSIEM)=>{
             //health monitor
             document.querySelectorAll("div.notifications__item").forEach((elem=>{ elem.style.filter='invert(1)' }))
             document.querySelectorAll('.notifications__message').forEach((elem=>{ elem.style.filter='invert(1)' }))
+
+            //notifications SIEM around health monitor
+            document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{elem.style.filter='invert(1)' })
+            document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ elem.style.filter='invert(1)' })
+            
         }, 100)
 
     }
