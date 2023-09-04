@@ -161,16 +161,26 @@ checkVersion().then((versionSIEM)=>{
     } else {
         setInterval(function() {
             
-            document.querySelector(".mc-navbar").style.background='white'
+            trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'})
             document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'})
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
-
-            document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
 
             awaitElements('body > section > div', ()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
             awaitElements('mc-navbar-logo', ()=>{ document.querySelector("mc-navbar-logo").style.filter='invert(1)'})
 
-            document.querySelector("body > section > nav-bar > nav > div > div.mc-navbar__left.layout-row > div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
+
+            document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
+            trySetAtrributes(()=>{
+                document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
+            })
+            trySetAtrributes(()=>{
+                document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-item:nth-child(4) > span").style.filter='invert(1)'
+            })
+
+            trySetAtrributes(()=>{
+                //body > section > nav-bar > nav > div > div.mc-navbar__left.layout-row > div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope
+                document.querySelector("div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
+            })
             document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
             trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
             
