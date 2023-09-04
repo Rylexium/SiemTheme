@@ -158,7 +158,7 @@ checkVersion().then((versionSIEM)=>{
         // })
 
 
-    } else {
+    } else { //for v.24 not for v.23 (Samara)
         setInterval(function() {
             
             trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
