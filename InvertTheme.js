@@ -161,8 +161,8 @@ checkVersion().then((versionSIEM)=>{
     } else {
         setInterval(function() {
             
-            trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'})
-            document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'})
+            trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
+            document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
 
             awaitElements('body > section > div', ()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
@@ -170,7 +170,7 @@ checkVersion().then((versionSIEM)=>{
 
 
             document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
-            trySetAtrributes(()=>{
+            trySetAtrributes(()=>{ //только в кб подсвечиваем эти кнопки
                 document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
             })
             trySetAtrributes(()=>{
@@ -185,7 +185,6 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
             
 
-            //.mc-dl .mc-dt, .mc-dl dt, dl .mc-dt, dl dt
             trySetAtrributes(()=>{ 
                 document.querySelector("body > knowledge-base-root > ng-component > div").querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
             })
@@ -206,25 +205,6 @@ checkVersion().then((versionSIEM)=>{
             //health monitor
             document.querySelectorAll("div.notifications__item").forEach((elem=>{ elem.style.filter='invert(1)' }))
             document.querySelectorAll('.notifications__message').forEach((elem=>{ elem.style.filter='invert(1)' }))
-            //document.querySelectorAll("notifications .notifications__item_warning").forEach((elem=>{ elem.style.filter='invert(1)' }))
-            //document.querySelector("div.notifications__message").style.filter='invert(1)'
-
-            //document.querySelector(".mc-navbar.navbar-blue").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(1)'})
-            //document.querySelector(".mc-navbar.navbar-blue").querySelectorAll('.ng-scope').forEach((elem)=>{elem.style.filter='invert(1)'})
-
-            //document.querySelector(".mc-navbar.navbar-blue").style.background='black'
-            //document.querySelectorAll('a').forEach((elem)=>{
-            //     elem.style.filter='invert(1)'
-            // })
-
-
-            //document.querySelector('.mc-navbar.navbar-blue').style.filter=invert
-            //document.querySelector(".mc-navbar.navbar-blue").style.background='white'
-            // awaitElements("body > section > nav-bar", ()=>{
-            //     document.querySelector("body > section > nav-bar").style.background=titleBackgroundColor
-            //     document.querySelector("body > section > nav-bar").style.filter=invert
-            //     document.querySelector("mc-btn mc-navbar__button ng-scope mc-active").style.filter="invert(1)"
-            // })
         }, 100)
 
     }
