@@ -209,6 +209,24 @@ checkVersion().then((versionSIEM)=>{
             //notifications SIEM around health monitor
             document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{elem.style.filter='invert(1)' })
             document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ elem.style.filter='invert(1)' })
+
+            //text Color
+            //не уверен в некоторых
+            // document.querySelectorAll("div.layout-row.flex > div").forEach((elem)=>{
+            //     elem.style.color='black'
+            //     elem.style.fontSize='15px'
+            // })
+            // document.querySelectorAll("div.layout-row.flex > div > div").forEach((elem)=>{ //time
+            //     elem.style.color='black'
+            //     elem.style.fontSize='15px'
+            // })
+            // document.querySelectorAll("div.ui-grid-cell.ng-scope.ui-grid-disable-selection.ui-grid-coluiGrid-00DS > div > div > span").forEach((elem)=>{
+            //     elem.style.color='black'
+            //     elem.style.fontSize='15px'
+            // })
+            // document.querySelectorAll('.mc-dl_small.mc-dl_horizontal .mc-dd, .mc-dl_small.mc-dl_horizontal .mc-dt, .mc-dl_small.mc-dl_horizontal dd, .mc-dl_small.mc-dl_horizontal dt').forEach((elem)=>{
+            //     elem.style.color='black'
+            // })
             
         }, 100)
 
