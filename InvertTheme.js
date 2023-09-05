@@ -93,6 +93,7 @@ checkVersion().then((versionSIEM)=>{
         })
         //Select field in navbar
         addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
+        document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' )
         
         // setInterval(function() {
         //     document.querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
