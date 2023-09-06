@@ -167,7 +167,10 @@ checkVersion().then((versionSIEM)=>{
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
 
             awaitElements('body > section > div', ()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
-            awaitElements('mc-navbar-logo', ()=>{ document.querySelector("mc-navbar-logo").style.filter='invert(1)'})
+            //awaitElements('mc-navbar-logo', ()=>{ document.querySelector("mc-navbar-logo").style.filter='invert(1)'})
+            trySetAtrributes(()=>{
+                document.querySelector("mc-navbar-brand > mc-navbar-title").style.filter='invert(0)'
+            })
 
 
             document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
@@ -182,7 +185,9 @@ checkVersion().then((versionSIEM)=>{
                 //body > section > nav-bar > nav > div > div.mc-navbar__left.layout-row > div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope
                 document.querySelector("div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
             })
-            document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
+            trySetAtrributes(()=>{
+                document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
+            })
             trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
             
 
@@ -210,6 +215,9 @@ checkVersion().then((versionSIEM)=>{
             //notifications SIEM around health monitor
             document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{elem.style.filter='invert(1)' })
             document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ elem.style.filter='invert(1)' })
+            trySetAtrributes(()=>{
+                document.querySelector("iframe").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' )
+            })
 
             //text Color
             //не уверен в некоторых
