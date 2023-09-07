@@ -255,6 +255,7 @@ checkVersion().then((versionSIEM)=>{
             //for drop down list in kb
             trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__content > div > a > div").forEach(elem=>elem.style.fontWeight='bold'))
             trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
+            trySetAtrributes(()=> document.querySelector("div.pdql-fast-filter__popover-title").style.fontWeight='bold')
 
             //servers errors
             //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
