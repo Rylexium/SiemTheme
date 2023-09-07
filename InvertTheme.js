@@ -160,13 +160,14 @@ checkVersion().then((versionSIEM)=>{
 
 
     } else { //for v.24 not for v.23 (Samara)
+        document.body.style.fontWeight='bold'
+
+        var css = "::selection{	background-color: #B8B8B8;}" //selected text
+        document.styleSheets[0].insertRule(css, 0)
+
         setInterval(function() {
-            document.body.style.fontWeight='bold' //убрать рябь в тексте
-
-            var css = "::selection{	background-color: #B8B8B8;}" //selected text
-            document.styleSheets[0].insertRule(css, 0)
-
             trySetAtrributes(()=> { document.querySelector("#TimerangeTimeWindowForm > section > mc-radio-group").style.fontWeight='bold' }) //for table selected time
+            trySetAtrributes(()=>{ document.querySelector("body > events-group-popover").style.fontWeight='bold' }) // for form filter
             trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
             document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
@@ -179,6 +180,9 @@ checkVersion().then((versionSIEM)=>{
 
             trySetAtrributes(()=> {
                 document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
+            })
+            trySetAtrributes(()=>{ //change logo in mc
+                document.querySelector("nav-bar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-brand > mc-navbar-logo > div").style.filter='invert(0)'
             })
             trySetAtrributes(()=>{ //только в кб подсвечиваем эти кнопки
                 document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
