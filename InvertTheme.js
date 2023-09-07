@@ -263,8 +263,6 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
             trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
 
-            //trySetAtrributes(()=> document.querySelector("div.mc-navbar__left.layout-row > div.layout-row.layout-fill_vertical.flex-noshrink > div > button:hover").style.filter='invert(1)')
-
             //servers errors
             //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
             
