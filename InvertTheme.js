@@ -160,12 +160,11 @@ checkVersion().then((versionSIEM)=>{
 
 
     } else { //for v.24 not for v.23 (Samara)
-        document.body.style.fontWeight='bold'
-
         var css = "::selection{	background-color: #B8B8B8;}" //selected text
         document.styleSheets[0].insertRule(css, 0)
 
         setInterval(function() {
+            trySetAtrributes(()=> { document.querySelector("section").style.fontWeight='bold' }) //all letter have bold
             trySetAtrributes(()=> { document.querySelector("#TimerangeTimeWindowForm > section > mc-radio-group").style.fontWeight='bold' }) //for table selected time
             trySetAtrributes(()=>{ document.querySelector("body > events-group-popover").style.fontWeight='bold' }) // for form filter
             trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
@@ -196,8 +195,10 @@ checkVersion().then((versionSIEM)=>{
                 document.querySelector("div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
             })
             trySetAtrributes(()=>{
+                document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.backgroundColor='grey'
                 document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
             })
+
             trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
             
 
@@ -256,6 +257,13 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__content > div > a > div").forEach(elem=>elem.style.fontWeight='bold'))
             trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
             trySetAtrributes(()=> document.querySelector("div.pdql-fast-filter__popover-title").style.fontWeight='bold')
+
+            
+            //left dropdown menu in (kb mc) and other
+            trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
+            trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
+
+            //trySetAtrributes(()=> document.querySelector("div.mc-navbar__left.layout-row > div.layout-row.layout-fill_vertical.flex-noshrink > div > button:hover").style.filter='invert(1)')
 
             //servers errors
             //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
