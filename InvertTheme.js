@@ -171,13 +171,15 @@ checkVersion().then((versionSIEM)=>{
             document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
 
-            awaitElements('body > section > div', ()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
+            trySetAtrributes(()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
             trySetAtrributes(()=>{
                 document.querySelector("mc-navbar-brand > mc-navbar-title").style.filter='invert(0)'
             })
 
 
-            document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
+            trySetAtrributes(()=> {
+                document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
+            })
             trySetAtrributes(()=>{ //только в кб подсвечиваем эти кнопки
                 document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
             })
@@ -245,6 +247,9 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=> document.querySelector("search-filter > div > div").style.color='black') //groups
             trySetAtrributes(()=> document.querySelector("span.mc-sidebar-header__title.ng-scope").style.color='black') //filters
             trySetAtrributes(()=> document.querySelector("div.layout-row.flex > div > div").style.color='black') //time
+
+            //servers errors
+            //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
             
         }, 100)
 
