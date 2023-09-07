@@ -99,65 +99,6 @@ checkVersion().then((versionSIEM)=>{
         //     document.querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
         // }, 100)
 
-        // awaitElements(".pt-icons", ()=>{
-        //     document.querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
-        // })
-        // awaitElements(".mc-label", ()=>{
-        //     document.querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'})
-        // })
-        // awaitElements(".mc", ()=>{
-        //     document.querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'})
-        // })
-        // awaitElements(".mc, .pt-icons", ()=>{
-        //     document.querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
-        // })
-
-        //event scroll, here change all elements
-        // document.querySelector("#\\31 693764353912-body-grid-container > div.ui-grid-viewport.ng-isolate-scope").addEventListener("scroll", function(){console.log("scroll 0")})
-        // document.querySelector("body > section > div > div > events-page > div > section > mc-sidebar.mc-sidebar_right.ng-scope.ng-isolate-scope > mc-sidebar-opened > event-info > section > section").addEventListener("scroll", function(){console.log("scroll 1")})
-
-        // addCSSRule(".pt-icons", {"-webkit-filter": "invert(1)"})
-        // addCSSRule(".mc-check_16", {"-webkit-filter": "invert(1)"})
-
-        // awaitElements('.pt-icons-check_16', ()=>{
-        //     document.styleSheets[1].insertRule(addAttributeToStyle('.pt-icons-check_16', "-webkit-filter", "invert(1)"), 0);
-        // })
-
-
-        // awaitElements('.mc-info-icon', ()=>{
-        //     document.styleSheets[1].insertRule(addAttributeToStyle('.mc-info-icon', "-webkit-filter;", "invert(1)"), 0);
-        // })
-        // awaitElements('.mc-success-icon', ()=>{
-        //     document.styleSheets[1].insertRule(addAttributeToStyle('.mc-success-icon', "-webkit-filter;", "invert(1)"), 0);
-        // })
-        // awaitElements('.mc-danger-icon ', ()=>{
-        //     document.styleSheets[1].insertRule(addAttributeToStyle('.mc-danger-icon ', "-webkit-filter;", "invert(1)"), 0);
-        // })
-
-        // //checkbox для фильтрации
-        // awaitElements('.mc-switch.mc-checked', ()=>{
-        //     document.styleSheets[1].insertRule(addAttributeToStyle('.mc-switch.mc-checked', "-webkit-filter;", "invert(1)"), 0);
-        // })
-
- 
-
-
-
-        
-        //.vm-widget-processing-status-item-indicator-header
-        //.vm-widget-processing-status-item-indicator-body
-        //.vm-widget-processing-status-item-indicator-footer
-
-        //.vm-widget-processing-status-item-indicator-header
-        //.vm-widget-processing-status-item-indicator-header
-        //.vm-widget-processing-status-item-importance .vm-widget-processing-status-item-importance__type.vm-widget-processing-status-item-importance__type_new
-
-        // awaitElements('.mc-warning-icon', ()=>{
-        //     document.querySelector(".mc-warning-icon").cl
-        //     document.styleSheets[0].insertRule(`.mc-warning-icon { color: #dfa83a;filter:invert(1); }`)
-        //     document.styleSheets[0].insertRule(`.mc-warning-icon { color: #dfa83a;filter:invert(1); }`)
-        // })
-
 
     } else { //for v.24 not for v.23 (Samara)
         var css = "::selection{	background-color: #B8B8B8;}" //selected text
@@ -235,9 +176,6 @@ checkVersion().then((versionSIEM)=>{
                 elem.style.filter='invert(1)' 
                 elem.style.fontWeight='bold'
             })
-            trySetAtrributes(()=>{
-                document.querySelector("iframe").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' )
-            })
             trySetAtrributes(()=>{ //text kb
                 document.querySelector("iframe").contentWindow.document.body.style.fontWeight='bold'
             })
@@ -258,6 +196,11 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
             trySetAtrributes(()=> document.querySelector("div.pdql-fast-filter__popover-title").style.fontWeight='bold')
 
+            //rules text in mc
+            trySetAtrributes(()=> document.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
+            trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
+            trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".compilation-status-icon-wrapper").forEach(elem=>elem.style.filter='invert(1)'))
+            trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons-download_16").forEach(elem=>elem.style.filter='invert(1)'))
             
             //left dropdown menu in (kb mc) and other
             trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
