@@ -161,13 +161,17 @@ checkVersion().then((versionSIEM)=>{
 
     } else { //for v.24 not for v.23 (Samara)
         setInterval(function() {
-            
+            document.body.style.fontWeight='bold' //убрать рябь в тексте
+
+            var css = "::selection{	background-color: #B8B8B8;}" //selected text
+            document.styleSheets[0].insertRule(css, 0)
+
+            trySetAtrributes(()=> { document.querySelector("#TimerangeTimeWindowForm > section > mc-radio-group").style.fontWeight='bold' }) //for table selected time
             trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
             document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
             document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
 
             awaitElements('body > section > div', ()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
-            //awaitElements('mc-navbar-logo', ()=>{ document.querySelector("mc-navbar-logo").style.filter='invert(1)'})
             trySetAtrributes(()=>{
                 document.querySelector("mc-navbar-brand > mc-navbar-title").style.filter='invert(0)'
             })
@@ -209,33 +213,38 @@ checkVersion().then((versionSIEM)=>{
             document.querySelectorAll(".highcharts-point").forEach((elem)=>{elem.style.filter='invert(1)'})
 
             //health monitor
-            document.querySelectorAll("div.notifications__item").forEach((elem=>{ elem.style.filter='invert(1)' }))
-            document.querySelectorAll('.notifications__message').forEach((elem=>{ elem.style.filter='invert(1)' }))
+            document.querySelectorAll("div.notifications__item").forEach((elem=>{ 
+                elem.style.filter='invert(1)'
+                elem.style.fontWeight='bold'
+            }))
+            document.querySelectorAll('.notifications__message').forEach((elem=>{ 
+                elem.style.filter='invert(1)' 
+                elem.style.fontWeight='bold'
+            }))
 
             //notifications SIEM around health monitor
-            document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{elem.style.filter='invert(1)' })
-            document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ elem.style.filter='invert(1)' })
+            document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{ elem.style.filter='invert(1)' })
+            document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ 
+                elem.style.filter='invert(1)' 
+                elem.style.fontWeight='bold'
+            })
             trySetAtrributes(()=>{
                 document.querySelector("iframe").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' )
             })
+            trySetAtrributes(()=>{ //text kb
+                document.querySelector("iframe").contentWindow.document.body.style.fontWeight='bold'
+            })
+            trySetAtrributes(()=>{ //text mc
+                document.querySelectorAll('tree-grid.roles .tree-item-privilege').forEach(elem => elem.style.fontWeight='bold')
+                document.querySelectorAll('.pt-text-nowrap, .pt-text-overflow').forEach(elem => elem.style.fontWeight='bold')
+            })
 
-            //text Color
-            //не уверен в некоторых
-            // document.querySelectorAll("div.layout-row.flex > div").forEach((elem)=>{
-            //     elem.style.color='black'
-            //     elem.style.fontSize='15px'
-            // })
-            // document.querySelectorAll("div.layout-row.flex > div > div").forEach((elem)=>{ //time
-            //     elem.style.color='black'
-            //     elem.style.fontSize='15px'
-            // })
-            // document.querySelectorAll("div.ui-grid-cell.ng-scope.ui-grid-disable-selection.ui-grid-coluiGrid-00DS > div > div > span").forEach((elem)=>{
-            //     elem.style.color='black'
-            //     elem.style.fontSize='15px'
-            // })
-            // document.querySelectorAll('.mc-dl_small.mc-dl_horizontal .mc-dd, .mc-dl_small.mc-dl_horizontal .mc-dt, .mc-dl_small.mc-dl_horizontal dd, .mc-dl_small.mc-dl_horizontal dt').forEach((elem)=>{
-            //     elem.style.color='black'
-            // })
+            trySetAtrributes(()=>{ document.querySelectorAll('td, th').forEach(elem=>elem.style.fontWeight='bold') })
+
+            //white title 
+            trySetAtrributes(()=> document.querySelector("search-filter > div > div").style.color='black') //groups
+            trySetAtrributes(()=> document.querySelector("span.mc-sidebar-header__title.ng-scope").style.color='black') //filters
+            trySetAtrributes(()=> document.querySelector("div.layout-row.flex > div > div").style.color='black') //time
             
         }, 100)
 
