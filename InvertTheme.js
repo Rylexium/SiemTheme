@@ -252,6 +252,10 @@ checkVersion().then((versionSIEM)=>{
             trySetAtrributes(()=> document.querySelector("span.mc-sidebar-header__title.ng-scope").style.color='black') //filters
             trySetAtrributes(()=> document.querySelector("div.layout-row.flex > div > div").style.color='black') //time
 
+            //for drop down list in kb
+            trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__content > div > a > div").forEach(elem=>elem.style.fontWeight='bold'))
+            trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
+
             //servers errors
             //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
             
