@@ -47,7 +47,8 @@ function addCSSRule(className, attributes){
     document.styleSheets[items[1]].insertRule(cssRule, items[2])
 }
 
-
+// var css = ".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active {background: grey;}"
+// document.styleSheets[0].insertRule(css, 0)
 
 
 //document.styleSheets[0].insertRule(addAttributeToStyle('.pt-icons', "filter", "invert(1)"))
@@ -83,134 +84,169 @@ async function checkVersion() {
         }, 100)
     })
 }
+
+
+function setDarkThemeSiemV24(){
+    var css = "::selection{	background-color: #B8B8B8;}" //selected text
+    document.styleSheets[0].insertRule(css, 0)
+
+    setInterval(function() {
+        trySetAtrributes(()=> { document.querySelector("section").style.fontWeight='bold' }) //all letter have bold
+        trySetAtrributes(()=> { document.querySelector("#TimerangeTimeWindowForm > section > mc-radio-group").style.fontWeight='bold' }) //for table selected time
+        trySetAtrributes(()=>{ document.querySelector("body > events-group-popover").style.fontWeight='bold' }) // for form filter
+        trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
+        document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
+        document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
+
+        trySetAtrributes(()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
+        trySetAtrributes(()=>{
+            document.querySelector("mc-navbar-brand > mc-navbar-title").style.filter='invert(0)'
+        })
+
+
+        trySetAtrributes(()=> {
+            document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
+        })
+        trySetAtrributes(()=>{ //change logo in mc
+            document.querySelector("nav-bar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-brand > mc-navbar-logo > div").style.filter='invert(0)'
+        })
+        trySetAtrributes(()=>{ //только в кб подсвечиваем эти кнопки
+            document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
+        })
+        trySetAtrributes(()=>{
+            document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-item:nth-child(4) > span").style.filter='invert(1)'
+        })
+
+        trySetAtrributes(()=>{
+            //body > section > nav-bar > nav > div > div.mc-navbar__left.layout-row > div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope
+            document.querySelector("div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
+        })
+        trySetAtrributes(()=>{
+            document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.backgroundColor='grey'
+            document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
+        })
+
+        trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
+        
+
+        trySetAtrributes(()=>{ 
+            document.querySelector("body > knowledge-base-root > ng-component > div").querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
+        })
+
+        trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
+        trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
+        trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
+        trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
+        
+
+        document.querySelectorAll('.mc-switch.mc-checked').forEach((elem)=>{
+            elem.style.filter=invert
+        })
+
+        //charts
+        document.querySelectorAll(".highcharts-point").forEach((elem)=>{elem.style.filter='invert(1)'})
+
+        //health monitor
+        document.querySelectorAll("div.notifications__item").forEach((elem=>{ 
+            elem.style.filter='invert(1)'
+            elem.style.fontWeight='bold'
+        }))
+        document.querySelectorAll('.notifications__message').forEach((elem=>{ 
+            elem.style.filter='invert(1)' 
+            elem.style.fontWeight='bold'
+        }))
+
+        //notifications SIEM around health monitor
+        document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{ elem.style.filter='invert(1)' })
+        document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ 
+            elem.style.filter='invert(1)' 
+            elem.style.fontWeight='bold'
+        })
+        trySetAtrributes(()=>{ //text kb
+            document.querySelector("iframe").contentWindow.document.body.style.fontWeight='bold'
+        })
+        trySetAtrributes(()=>{ //text mc
+            document.querySelectorAll('tree-grid.roles .tree-item-privilege').forEach(elem => elem.style.fontWeight='bold')
+            document.querySelectorAll('.pt-text-nowrap, .pt-text-overflow').forEach(elem => elem.style.fontWeight='bold')
+        })
+
+        trySetAtrributes(()=>{ document.querySelectorAll('td, th').forEach(elem=>elem.style.fontWeight='bold') })
+
+        //white title 
+        trySetAtrributes(()=> document.querySelector("search-filter > div > div").style.color='black') //groups
+        trySetAtrributes(()=> document.querySelector("span.mc-sidebar-header__title.ng-scope").style.color='black') //filters
+        trySetAtrributes(()=> document.querySelector("div.layout-row.flex > div > div").style.color='black') //time
+
+        //for drop down list in kb
+        trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__content > div > a > div").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("div.pdql-fast-filter__popover-title").style.fontWeight='bold')
+
+        //rules text in mc
+        trySetAtrributes(()=> document.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".compilation-status-icon-wrapper").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons-download_16").forEach(elem=>elem.style.filter='invert(1)'))
+        
+        //left dropdown menu in (kb mc) and other
+        trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
+
+        //servers errors
+        //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
+        
+    }, 100)
+}
+
+
+function setDarkThemeSiemV25() {
+    //инвертим header health monitora
+    awaitElements("mc-navbar", ()=>{
+        document.querySelector("mc-navbar").style.background=titleBackgroundColor
+        document.querySelector("mc-navbar").style.filter=invert 
+    })
+    //Select field in navbar
+    //addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
+
+    document.styleSheets[0].insertRule("::selection{	background-color: #B8B8B8;}", 0) //selected text
+    addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"background": "grey"})
+
+    setInterval(function() {
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector(".view-container").style.fontWeight='bold')
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title, mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title").forEach(elem=>elem.style.color='black'))
+       trySetAtrributes(()=> document.querySelectorAll('.mc-dropdown__panel > div > a').forEach(elem=>elem.style.fontWeight='bold'))
+
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' ))
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+    
+       trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
+
+       //about system
+       trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-entity-parameters__value").forEach(elem=>elem.style.fontWeight='bold'))
+       trySetAtrributes(()=> document.querySelectorAll(".license-info__value").forEach(elem=>elem.style.fontWeight='bold'))
+       trySetAtrributes(()=> document.querySelectorAll(".system-info__value").forEach(elem=>elem.style.fontWeight='bold'))
+       trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option .mc-option-text > a").forEach(elem=>elem.style.fontWeight='bold'))
+
+       trySetAtrributes(()=> document.querySelectorAll(".ng-star-inserted").forEach(elem=>elem.style.fontWeight='bold'))
+       trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option > span > span > span").forEach(elem=>elem.style.fontWeight='bold'))
+       trySetAtrributes(()=> document.querySelectorAll(".ag-cell-value").forEach(elem=>elem.style.fontWeight='bold'))
+
+
+       trySetAtrributes(()=> document.querySelector("pt-siem-management-checks-page").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}))
+       trySetAtrributes(()=> document.querySelectorAll("span > div > pt-siem-counter-progress-bar > div").forEach((elem)=>{ elem.style.filter='invert(1)'}))
+       trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
+    }, 100)
+}
+
+
 checkVersion().then((versionSIEM)=>{
     document.body.style.filter = invert
     if(versionSIEM == "25") {
-        //инвертим header health monitora
-        awaitElements("mc-navbar", ()=>{
-            document.querySelector("mc-navbar").style.background=titleBackgroundColor
-            document.querySelector("mc-navbar").style.filter=invert 
-        })
-        //Select field in navbar
-        addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
-        document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' )
-        
-        // setInterval(function() {
-        //     document.querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
-        // }, 100)
-
-
+        setDarkThemeSiemV25()
     } else { //for v.24 not for v.23 (Samara)
-        var css = "::selection{	background-color: #B8B8B8;}" //selected text
-        document.styleSheets[0].insertRule(css, 0)
-
-        setInterval(function() {
-            trySetAtrributes(()=> { document.querySelector("section").style.fontWeight='bold' }) //all letter have bold
-            trySetAtrributes(()=> { document.querySelector("#TimerangeTimeWindowForm > section > mc-radio-group").style.fontWeight='bold' }) //for table selected time
-            trySetAtrributes(()=>{ document.querySelector("body > events-group-popover").style.fontWeight='bold' }) // for form filter
-            trySetAtrributes(()=>{ document.querySelector(".mc-navbar").style.background='white'}) //общий хедер сиема
-            document.querySelectorAll('.mc-navbar.navbar-blue .mc-navbar__button, .mc-navbar.navbar-blue .mc-navbar__link').forEach((elem)=>{elem.style.filter='invert(1)'}) //все кнопки
-            document.querySelectorAll(".mc-navbar .mc-icon, .mc-navbar .mc-navbar-title").forEach((elem)=>{elem.style.filter='invert(1)'})
-
-            trySetAtrributes(()=>{ document.querySelector(".pt-navbar-icon").style.filter='invert(1)'})
-            trySetAtrributes(()=>{
-                document.querySelector("mc-navbar-brand > mc-navbar-title").style.filter='invert(0)'
-            })
-
-
-            trySetAtrributes(()=> {
-                document.querySelector(".mc-navbar").querySelectorAll('.pt-icons').forEach((elem)=>{elem.style.filter='invert(0)'})
-            })
-            trySetAtrributes(()=>{ //change logo in mc
-                document.querySelector("nav-bar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-brand > mc-navbar-logo > div").style.filter='invert(0)'
-            })
-            trySetAtrributes(()=>{ //только в кб подсвечиваем эти кнопки
-                document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > database-select > mc-navbar-item > i.pt-icons.db-icon").style.filter='invert(1)'
-            })
-            trySetAtrributes(()=>{
-                document.querySelector("knowledge-base-root > ng-component > navbar > mc-navbar > nav > mc-navbar-container.mc-navbar-left > mc-navbar-item:nth-child(4) > span").style.filter='invert(1)'
-            })
-
-            trySetAtrributes(()=>{
-                //body > section > nav-bar > nav > div > div.mc-navbar__left.layout-row > div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope
-                document.querySelector("div.mc-navbar__header.pt-text-overflow.flex-nogrow.ng-isolate-scope").style.filter='invert(1)'
-            })
-            trySetAtrributes(()=>{
-                document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.backgroundColor='grey'
-                document.querySelector('.mc-navbar.navbar-blue .mc-navbar__item.mc-active, .mc-navbar.navbar-blue .mc-navbar__item.mc-navbar__item_active, .mc-navbar.navbar-blue .mc-navbar__item.open').style.background='grey'
-            })
-
-            trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
-            
-
-            trySetAtrributes(()=>{ 
-                document.querySelector("body > knowledge-base-root > ng-component > div").querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'})
-            })
-
-            trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
-            trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
-            trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
-            trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
-            
-
-            document.querySelectorAll('.mc-switch.mc-checked').forEach((elem)=>{
-                elem.style.filter=invert
-            })
-
-            //charts
-            document.querySelectorAll(".highcharts-point").forEach((elem)=>{elem.style.filter='invert(1)'})
-
-            //health monitor
-            document.querySelectorAll("div.notifications__item").forEach((elem=>{ 
-                elem.style.filter='invert(1)'
-                elem.style.fontWeight='bold'
-            }))
-            document.querySelectorAll('.notifications__message').forEach((elem=>{ 
-                elem.style.filter='invert(1)' 
-                elem.style.fontWeight='bold'
-            }))
-
-            //notifications SIEM around health monitor
-            document.querySelectorAll(".mc-ntn-items").forEach((elem)=>{ elem.style.filter='invert(1)' })
-            document.querySelectorAll(".flex.layout-fill_x").forEach((elem)=>{ 
-                elem.style.filter='invert(1)' 
-                elem.style.fontWeight='bold'
-            })
-            trySetAtrributes(()=>{ //text kb
-                document.querySelector("iframe").contentWindow.document.body.style.fontWeight='bold'
-            })
-            trySetAtrributes(()=>{ //text mc
-                document.querySelectorAll('tree-grid.roles .tree-item-privilege').forEach(elem => elem.style.fontWeight='bold')
-                document.querySelectorAll('.pt-text-nowrap, .pt-text-overflow').forEach(elem => elem.style.fontWeight='bold')
-            })
-
-            trySetAtrributes(()=>{ document.querySelectorAll('td, th').forEach(elem=>elem.style.fontWeight='bold') })
-
-            //white title 
-            trySetAtrributes(()=> document.querySelector("search-filter > div > div").style.color='black') //groups
-            trySetAtrributes(()=> document.querySelector("span.mc-sidebar-header__title.ng-scope").style.color='black') //filters
-            trySetAtrributes(()=> document.querySelector("div.layout-row.flex > div > div").style.color='black') //time
-
-            //for drop down list in kb
-            trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__content > div > a > div").forEach(elem=>elem.style.fontWeight='bold'))
-            trySetAtrributes(()=> document.querySelectorAll(".mc-dropdown__item > div").forEach(elem=>elem.style.fontWeight='bold'))
-            trySetAtrributes(()=> document.querySelector("div.pdql-fast-filter__popover-title").style.fontWeight='bold')
-
-            //rules text in mc
-            trySetAtrributes(()=> document.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
-            trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
-            trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".compilation-status-icon-wrapper").forEach(elem=>elem.style.filter='invert(1)'))
-            trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons-download_16").forEach(elem=>elem.style.filter='invert(1)'))
-            
-            //left dropdown menu in (kb mc) and other
-            trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
-            trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
-
-            //servers errors
-            //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
-            
-        }, 100)
-
+        setDarkThemeSiemV24()
     }
 })
 .catch(console.error)
