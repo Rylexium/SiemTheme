@@ -258,7 +258,7 @@ function setDarkThemeSiemV25() {
         //комент потому что жирные значки в корреляциях
         //trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("events-page > div > section > section").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch small').forEach(elem=>elem.style.filter='invert(1)'))
-        
+
         //left-up menu
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector('.mc-popover').style.fontWeight='bold')
         trySetAtrributes(()=> document.querySelectorAll(".mc-link__text").forEach(elem=>elem.style.fontWeight='bold'))
@@ -301,6 +301,17 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelectorAll('.mc-form-group .mc-form-group_row .mc-form-label').forEach(elem=>elem.style.fontWeight='bold'))
         
         trySetAtrributes(()=> document.querySelectorAll(".ng-star-inserted").forEach(elem => elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt__dashboard__table__span').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".pt-icons-external-link_16").forEach(elem=>elem.style.filter='invert(0)'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".ng-binding").forEach(elem => elem.style.fontWeight='bold'))
+
+
+        //history queries
+        trySetAtrributes(()=> document.querySelectorAll(".text-less-contrast").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".pdql-text").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-info_16").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll("div.flex.layout-row.layout-align-center-center.ng-star-inserted > div").forEach(elem=>elem.style.fontWeight='bold'))
+
     }, 100)
 }
 
