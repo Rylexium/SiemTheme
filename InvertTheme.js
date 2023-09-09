@@ -73,8 +73,7 @@ function trySetAtrributes(lambda) {
 async function checkVersion() {
     return await new Promise(resolve => {
         var checkExist = setInterval(function() {
-            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") 
-            || document.querySelector("pt-siem-knowledge-base-root") || document.querySelectorAll(".pt-root")) {
+            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") || document.querySelector("pt-siem-knowledge-base-root") || document.querySelector(".pt-root")) {
                 resolve("25");
                 clearInterval(checkExist);
             }
