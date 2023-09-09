@@ -128,6 +128,7 @@ function setDarkThemeSiemV24(){
 
         trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
         trySetAtrributes(()=> document.querySelectorAll('assets-vulnerabilities-stat-indicator').forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll('counter-progress-bar').forEach(elem=>elem.style.filter='invert(1)')) //checklist
         
 
         trySetAtrributes(()=>{ 
@@ -327,7 +328,7 @@ checkVersion().then((versionSIEM)=>{
     if(versionSIEM == "25") {
         console.log("version 25")
         setDarkThemeSiemV25()
-    } else if (versionSIEM == "24"){ //for v.24 not for v.23 (Samara)
+    } else if (versionSIEM == "24"){ //for v.24 and for v.23 (Samara)
         console.log("version 24")
         setDarkThemeSiemV24()
     } else {
