@@ -292,7 +292,7 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".highcharts-point").forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll("assets-vulnerabilities-stat-indicator > div").forEach(elem=>elem.style.filter='invert(1)'))
 
-
+        //trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".pt-text-overflow > span").forEach(elem=>elem.style.filter='invert(1)'))
 
     }, 100)
 }
