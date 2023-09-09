@@ -192,6 +192,9 @@ function setDarkThemeSiemV24(){
         trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
 
+
+        trySetAtrributes(()=> document.querySelectorAll(".mc-btn_action-bar, assets-report-modal>report-from-section>.mc-btn").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("body > events-filter-popover").style.fontWeight='bold')
         //servers errors
         //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
         
