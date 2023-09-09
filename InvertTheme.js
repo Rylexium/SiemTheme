@@ -192,6 +192,7 @@ function setDarkThemeSiemV24(){
         trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll("deploy-status .status-text").forEach(elem=>elem.style.filter='invert(1)'))
 
 
         //left dropdown menu in (kb mc) and other
@@ -201,6 +202,8 @@ function setDarkThemeSiemV24(){
 
         trySetAtrributes(()=> document.querySelectorAll(".mc-btn_action-bar, assets-report-modal>report-from-section>.mc-btn").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("body > events-filter-popover").style.fontWeight='bold')
+
+        trySetAtrributes(()=> document.querySelectorAll("knowledge-base-root > ng-component > div > about-system > div > div > div").forEach(elem=>elem.style.fontWeight='bold'))
         //servers errors
         //trySetAtrributes(()=> document.querySelector("section > server-errors > div").style.filter='invert(0)')
         
