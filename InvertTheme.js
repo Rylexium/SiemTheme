@@ -140,7 +140,7 @@ function setDarkThemeSiemV24(){
         trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
         trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
 
-        trySetAtrributes(()=> document.querySelectorAll("span.mc-switch.mc-switch_sm.mc-checked > small").forEach((elem)=>{ elem.style.filter='invert(1)'}))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-switch.mc-switch_sm small").forEach((elem)=>{ elem.style.filter='invert(1)'}))
 
         //charts
         document.querySelectorAll(".highcharts-point").forEach((elem)=>{elem.style.filter='invert(1)'})
