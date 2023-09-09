@@ -127,6 +127,7 @@ function setDarkThemeSiemV24(){
         })
 
         trySetAtrributes(()=>{ document.querySelector("mc-navbar-brand").style.filter='invert(1)'})
+        trySetAtrributes(()=> document.querySelectorAll('assets-vulnerabilities-stat-indicator').forEach(elem=>elem.style.filter='invert(1)'))
         
 
         trySetAtrributes(()=>{ 
@@ -137,11 +138,8 @@ function setDarkThemeSiemV24(){
         trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
         trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
         trySetAtrributes(()=>{ document.querySelector("body > section > div").querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) })
-        
 
-        document.querySelectorAll('.mc-switch.mc-checked').forEach((elem)=>{
-            elem.style.filter=invert
-        })
+        trySetAtrributes(()=> document.querySelectorAll("span.mc-switch.mc-switch_sm.mc-checked > small").forEach((elem)=>{ elem.style.filter='invert(1)'}))
 
         //charts
         document.querySelectorAll(".highcharts-point").forEach((elem)=>{elem.style.filter='invert(1)'})
@@ -190,10 +188,10 @@ function setDarkThemeSiemV24(){
         //rules text in mc
         trySetAtrributes(()=> document.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".ag-header-cell-text").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc").forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll("deploy-status .status-text").forEach(elem=>elem.style.filter='invert(1)'))
-
 
         //left dropdown menu in (kb mc) and other
         trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
