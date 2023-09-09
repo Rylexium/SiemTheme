@@ -73,7 +73,8 @@ function trySetAtrributes(lambda) {
 async function checkVersion() {
     return await new Promise(resolve => {
         var checkExist = setInterval(function() {
-            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") || document.querySelector("pt-siem-knowledge-base-root")) {
+            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") 
+            || document.querySelector("pt-siem-knowledge-base-root") || document.querySelectorAll(".pt-root")) {
                 resolve("25");
                 clearInterval(checkExist);
             }
@@ -212,7 +213,7 @@ function setDarkThemeSiemV25() {
     //addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"-webkit-filter": "invert(1)"})
 
     document.styleSheets[0].insertRule("::selection{	background-color: #B8B8B8;}", 0) //selected text
-    addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"background": "grey"})
+    trySetAtrributes(()=> addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"background": "grey"}))
 
     setInterval(function() {
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector(".view-container").style.fontWeight='bold')
@@ -290,6 +291,7 @@ function setDarkThemeSiemV25() {
                 elem.style.fontWeight='normal'
             })
         })
+        trySetAtrributes(()=> document.querySelector("#frameOutlet").contentWindow.document.body.querySelectorAll("deploy-status").forEach(elem=>elem.style.filter='invert(1)'))
         
 
         //grafiki
@@ -297,7 +299,9 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll("assets-vulnerabilities-stat-indicator > div").forEach(elem=>elem.style.filter='invert(1)'))
 
         trySetAtrributes(()=> document.querySelectorAll(".pt-text-overflow > span").forEach(elem=>elem.style.filter='invert(1)'))
-
+        trySetAtrributes(()=> document.querySelectorAll('.mc-form-group .mc-form-group_row .mc-form-label').forEach(elem=>elem.style.fontWeight='bold'))
+        
+        trySetAtrributes(()=> document.querySelectorAll(".ng-star-inserted").forEach(elem => elem.style.fontWeight='bold'))
     }, 100)
 }
 
