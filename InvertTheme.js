@@ -169,6 +169,11 @@ function setDarkThemeSiemV24(){
             document.querySelectorAll('tree-grid.roles .tree-item-privilege').forEach(elem => elem.style.fontWeight='bold')
             document.querySelectorAll('.pt-text-nowrap, .pt-text-overflow').forEach(elem => elem.style.fontWeight='bold')
         })
+        trySetAtrributes(()=> document.querySelectorAll('.ag-cell').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll('.mc-button.mc-second, .mc-icon-button.mc-second').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll('.layout-row').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll("tbody > tr > th > div > span").forEach(elem=>elem.style.fontWeight='bold'))
+
 
         trySetAtrributes(()=>{ document.querySelectorAll('td, th').forEach(elem=>elem.style.fontWeight='bold') })
 
@@ -185,9 +190,10 @@ function setDarkThemeSiemV24(){
         //rules text in mc
         trySetAtrributes(()=> document.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelectorAll(".mc-body_strong").forEach(elem=>elem.style.fontWeight='bold'))
-        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".compilation-status-icon-wrapper").forEach(elem=>elem.style.filter='invert(1)'))
-        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons-download_16").forEach(elem=>elem.style.filter='invert(1)'))
-        
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc").forEach(elem=>elem.style.filter='invert(1)'))
+
+
         //left dropdown menu in (kb mc) and other
         trySetAtrributes(()=> document.querySelectorAll("div > div > div > div > mc-list-selection > mc-list-option > div > div > a > span").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelectorAll("a > span > span").forEach(elem=>elem.style.fontWeight='bold'))
