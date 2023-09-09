@@ -271,7 +271,28 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelector("mc-web-app-root .mc-navbar-logo").style.filter='invert(0)')
         trySetAtrributes(()=> document.querySelectorAll("mc-web-app-root span").forEach(elem=>elem.style.fontWeight='bold'))
 
-        //trySetAtrributes(()=> document.querySelector("mc-web-app-root > ng-component > mc-web-nav-bar > mc-navbar > mc-navbar-container.mc-navbar-container.ng-star-inserted > mc-navbar-item > i").style.filter='invert(1)')
+        //kb
+        trySetAtrributes(()=> document.querySelector("#frameOutlet").contentWindow.document.body.querySelector("section").querySelectorAll(".ng-binding").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#frameOutlet").contentWindow.document.body.querySelector("section").querySelectorAll(".ng-scope").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> {
+            document.querySelector("#frameOutlet").contentWindow.document.body.querySelectorAll(".pt-icons").forEach(elem=>{ 
+                elem.style.filter='invert(1)'
+                elem.style.fontWeight='normal'
+            })
+        })
+        trySetAtrributes(()=> {
+            document.querySelector("#frameOutlet").contentWindow.document.body.querySelectorAll(".mc").forEach(elem=>{ 
+                elem.style.filter='invert(1)'
+                elem.style.fontWeight='normal'
+            })
+        })
+        
+
+        //grafiki
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".highcharts-point").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll("assets-vulnerabilities-stat-indicator > div").forEach(elem=>elem.style.filter='invert(1)'))
+
+
 
     }, 100)
 }
