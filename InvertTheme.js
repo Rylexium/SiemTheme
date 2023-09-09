@@ -73,7 +73,7 @@ function trySetAtrributes(lambda) {
 async function checkVersion() {
     return await new Promise(resolve => {
         var checkExist = setInterval(function() {
-            if (document.querySelector("#legacyApplicationFrame")) {
+            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") || document.querySelector("pt-siem-knowledge-base-root")) {
                 resolve("25");
                 clearInterval(checkExist);
             }
@@ -212,31 +212,67 @@ function setDarkThemeSiemV25() {
     addCSSRule(".mc-navbar-item.mc-active, .mc-navbar-brand.mc-active, .mc-navbar-toggle.mc-active", {"background": "grey"})
 
     setInterval(function() {
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector(".view-container").style.fontWeight='bold')
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title, mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title").forEach(elem=>elem.style.color='black'))
-       trySetAtrributes(()=> document.querySelectorAll('.mc-dropdown__panel > div > a').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector(".view-container").style.fontWeight='bold')
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title, mc-sidebar mc-sidebar-opened .mc-sidebar-header .mc-sidebar-header__title").forEach(elem=>elem.style.color='black'))
+        trySetAtrributes(()=> document.querySelectorAll('.mc-dropdown__panel > div > a').forEach(elem=>elem.style.fontWeight='bold'))
 
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' ))
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
-       trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt-icons').forEach(elem => elem.style.filter='invert(1)' ))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-label').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc, .pt-icons').forEach((elem)=>{ elem.style.filter='invert(1)'}) )
+     
+        trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
+ 
+        //about system
+        trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-entity-parameters__value").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".license-info__value").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".system-info__value").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option .mc-option-text > a").forEach(elem=>elem.style.fontWeight='bold'))
+ 
+        trySetAtrributes(()=> document.querySelectorAll(".ng-star-inserted").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option > span > span > span").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll(".ag-cell-value").forEach(elem=>elem.style.fontWeight='bold'))
+ 
+ 
+        trySetAtrributes(()=> document.querySelector("pt-siem-management-checks-page").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}))
+        trySetAtrributes(()=> document.querySelectorAll("span > div > pt-siem-counter-progress-bar > div").forEach((elem)=>{ elem.style.filter='invert(1)'}))
+        trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
+
+        //health monitor notifications
+        trySetAtrributes(()=> document.querySelectorAll("pt-health-monitoring-notification").forEach(elem=> elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll(".health-monitoring-notification").forEach(elem=>elem.style.background='black'))
+        trySetAtrributes(()=> document.querySelectorAll("div.health-monitoring-notification__content").forEach(elem=>elem.style.filter='invert(1)'))
+ 
+        //system notifications
+        trySetAtrributes(()=> document.querySelectorAll("div.health-monitoring-notification__content").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll("pt-notification").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll("pt-notification .notification").forEach(elem=>elem.style.background='black'))
+        trySetAtrributes(()=> document.querySelectorAll("div.notification__content").forEach(elem=>elem.style.filter='invert(1)'))
+ 
+        trySetAtrributes(()=> document.querySelectorAll('.mc-dropdown-item-wrapper').forEach(elem=>elem.style.fontWeight='bold'))
+ 
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("events-page > div > section > section").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch.mc-checked').forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch small').forEach(elem=>elem.style.filter='invert(1)'))
     
-       trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-icons").forEach(elem=>elem.style.filter='invert(1)'))
+        //left-up menu
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector('.mc-popover').style.fontWeight='bold')
+        trySetAtrributes(()=> document.querySelectorAll(".mc-link__text").forEach(elem=>elem.style.fontWeight='bold'))
 
-       //about system
-       trySetAtrributes(()=> document.querySelector("pt-siem-main").querySelectorAll(".pt-entity-parameters__value").forEach(elem=>elem.style.fontWeight='bold'))
-       trySetAtrributes(()=> document.querySelectorAll(".license-info__value").forEach(elem=>elem.style.fontWeight='bold'))
-       trySetAtrributes(()=> document.querySelectorAll(".system-info__value").forEach(elem=>elem.style.fontWeight='bold'))
-       trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option .mc-option-text > a").forEach(elem=>elem.style.fontWeight='bold'))
+        //tasks, all text bold
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector('.mc-action-bar').querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelectorAll("div.mc-button-wrapper > span").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector('.mc-action-bar').querySelectorAll("span").forEach(elem=>elem.style.fontWeight='bold'))
+        
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("scan-tables-page > div > section > section").querySelectorAll("span").forEach(elem=>elem.style.fontWeight='bold'))
+        
+        //mc
+        trySetAtrributes(()=> document.querySelector("mc-web-app-root .mc-navbar-logo").style.filter='invert(0)')
+        trySetAtrributes(()=> document.querySelectorAll("mc-web-app-root span").forEach(elem=>elem.style.fontWeight='bold'))
 
-       trySetAtrributes(()=> document.querySelectorAll(".ng-star-inserted").forEach(elem=>elem.style.fontWeight='bold'))
-       trySetAtrributes(()=> document.querySelectorAll(".mc-tree-option > span > span > span").forEach(elem=>elem.style.fontWeight='bold'))
-       trySetAtrributes(()=> document.querySelectorAll(".ag-cell-value").forEach(elem=>elem.style.fontWeight='bold'))
+        //trySetAtrributes(()=> document.querySelector("mc-web-app-root > ng-component > mc-web-nav-bar > mc-navbar > mc-navbar-container.mc-navbar-container.ng-star-inserted > mc-navbar-item > i").style.filter='invert(1)')
 
-
-       trySetAtrributes(()=> document.querySelector("pt-siem-management-checks-page").querySelectorAll('.mc').forEach((elem)=>{ elem.style.filter='invert(1)'}))
-       trySetAtrributes(()=> document.querySelectorAll("span > div > pt-siem-counter-progress-bar > div").forEach((elem)=>{ elem.style.filter='invert(1)'}))
-       trySetAtrributes(()=> document.querySelector("iframe").contentWindow.document.body.querySelectorAll(".mc-body").forEach(elem=>elem.style.fontWeight='bold'))
     }, 100)
 }
 
@@ -244,9 +280,13 @@ function setDarkThemeSiemV25() {
 checkVersion().then((versionSIEM)=>{
     document.body.style.filter = invert
     if(versionSIEM == "25") {
+        console.log("version 25")
         setDarkThemeSiemV25()
-    } else { //for v.24 not for v.23 (Samara)
+    } else if (versionSIEM == "24"){ //for v.24 not for v.23 (Samara)
+        console.log("version 24")
         setDarkThemeSiemV24()
+    } else {
+        console.log("Unknown version")
     }
 })
 .catch(console.error)
