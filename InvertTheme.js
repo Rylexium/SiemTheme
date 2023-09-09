@@ -257,9 +257,8 @@ function setDarkThemeSiemV25() {
  
         //комент потому что жирные значки в корреляциях
         //trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("events-page > div > section > section").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
-        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch.mc-checked').forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch small').forEach(elem=>elem.style.filter='invert(1)'))
-    
+        
         //left-up menu
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector('.mc-popover').style.fontWeight='bold')
         trySetAtrributes(()=> document.querySelectorAll(".mc-link__text").forEach(elem=>elem.style.fontWeight='bold'))
