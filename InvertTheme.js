@@ -251,7 +251,8 @@ function setDarkThemeSiemV25() {
  
         trySetAtrributes(()=> document.querySelectorAll('.mc-dropdown-item-wrapper').forEach(elem=>elem.style.fontWeight='bold'))
  
-        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("events-page > div > section > section").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
+        //комент потому что жирные значки в корреляциях
+        //trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelector("events-page > div > section > section").querySelectorAll('.ng-scope').forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch.mc-checked').forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.mc-switch small').forEach(elem=>elem.style.filter='invert(1)'))
     
@@ -292,7 +293,7 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".highcharts-point").forEach(elem=>elem.style.filter='invert(1)'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll("assets-vulnerabilities-stat-indicator > div").forEach(elem=>elem.style.filter='invert(1)'))
 
-        //trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".pt-text-overflow > span").forEach(elem=>elem.style.filter='invert(1)'))
+        trySetAtrributes(()=> document.querySelectorAll(".pt-text-overflow > span").forEach(elem=>elem.style.filter='invert(1)'))
 
     }, 100)
 }
