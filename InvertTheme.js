@@ -70,6 +70,30 @@ function trySetAtrributes(lambda) {
 }
 
 
+async function isSiemCheck() {
+    return await new Promise(resolve => {
+        var retry = 0
+        var checkExist = setInterval(function() {
+            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") 
+                || document.querySelector("pt-siem-knowledge-base-root") || document.querySelector(".pt-root")  //for v.25
+                || document.querySelector(".view-container") || document.querySelector("knowledge-base-root") || document.querySelector("app-root")) //fov v.24
+            {
+                clearInterval(checkExist);
+                resolve(true)
+            }
+
+            if (retry >= 30){
+                clearInterval(checkExist)
+                resolve(false)
+            }
+            retry += 1
+        }, 1000)
+    
+    })
+}
+
+
+
 async function checkVersion() {
     return await new Promise(resolve => {
         var checkExist = setInterval(function() {
@@ -323,17 +347,24 @@ function setDarkThemeSiemV25() {
 }
 
 
-checkVersion().then((versionSIEM)=>{
-    document.body.style.filter = invert
-    if(versionSIEM == "25") {
-        console.log("version 25")
-        setDarkThemeSiemV25()
-    } else if (versionSIEM == "24"){ //for v.24 and for v.23 (Samara)
-        console.log("version 24")
-        setDarkThemeSiemV24()
-    } else {
-        console.log("Unknown version")
-    }
+isSiemCheck().then((isSiem)=>{
+    console.log("isSiem: " + isSiem)
+    if(!isSiem) return
+
+
+    checkVersion().then((versionSIEM)=>{
+        document.body.style.filter = invert
+        if(versionSIEM == "25") {
+            console.log("version 25")
+            setDarkThemeSiemV25()
+        } else if (versionSIEM == "24"){ //for v.24 and for v.23 (Samara)
+            console.log("version 24")
+            setDarkThemeSiemV24()
+        } else {
+            console.log("Unknown version")
+        }
+    })
+    .catch(console.error)
 })
 .catch(console.error)
 
