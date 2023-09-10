@@ -336,8 +336,9 @@ function setDarkThemeSiemV25() {
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll('.pt__dashboard__table__span').forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".pt-icons-external-link_16").forEach(elem=>elem.style.filter='invert(0)'))
         trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".pt-text-overflow").forEach(elem=>elem.style.fontWeight='bold'))
-        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".ng-binding").forEach(elem=>elem.style.fontWeight='bold'))
+        trySetAtrributes(()=> document.querySelector("#legacyApplicationFrame").contentWindow.document.body.querySelectorAll(".ng-scope.ng-binding").forEach(elem=>elem.style.fontWeight='bold'))
 
+        
         //history queries
         trySetAtrributes(()=> document.querySelectorAll(".text-less-contrast").forEach(elem=>elem.style.fontWeight='bold'))
         trySetAtrributes(()=> document.querySelectorAll(".pdql-text").forEach(elem=>elem.style.fontWeight='bold'))
