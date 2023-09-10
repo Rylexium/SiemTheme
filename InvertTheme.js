@@ -74,15 +74,16 @@ async function isSiemCheck() {
     return await new Promise(resolve => {
         var retry = 0
         var checkExist = setInterval(function() {
-            if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") 
-                || document.querySelector("pt-siem-knowledge-base-root") || document.querySelector(".pt-root")  //for v.25
-                || document.querySelector(".view-container") || document.querySelector("knowledge-base-root") || document.querySelector("app-root")) //fov v.24
+            // if (document.querySelector("#legacyApplicationFrame") || document.querySelector("mc-web-app-root") 
+            //     || document.querySelector("pt-siem-knowledge-base-root") || document.querySelector(".pt-root")  //for v.25
+            //     || document.querySelector(".view-container") || document.querySelector("knowledge-base-root") || document.querySelector("app-root")) //fov v.24
+            if(document.querySelector(".pt-navbar-icon") || document.querySelector(".mc-navbar-logo"))
             {
                 clearInterval(checkExist);
                 resolve(true)
             }
 
-            if (retry >= 30){
+            if (retry >= 30) { //await 30 sec.
                 clearInterval(checkExist)
                 resolve(false)
             }
