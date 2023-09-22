@@ -1,12 +1,26 @@
 {
    "manifest_version": 3,
-   "name": "SiemThemes",
-   "description": "SiemThemes for MaxPatrol SIEM",
-   "version": "1.0",
+   "name": "SiemTheme",
+   "version": "0.2.5",
+   "description": "Изменение темы Siem",
    "content_scripts": [
        {
-           "matches": [ "<all_urls>"],
-           "js": [ "InvertTheme.js" ]
+           "matches": ["http://*/*","https://*/*"],
+           "js": [ "lib//jquery-3.7.1.min.js","lib//Core.js","Main.js",
+        "Themes//InvertTheme.js","Themes//InvertThemeBeta.js"]
        }
-   ]
+   ],
+   "icons": {
+    "16":"icons/16.png",
+    "32":"icons/32.png",
+    "48":"icons/48.png",
+    "128":"icons/128.png"
+},
+"action": {
+    "default_popup":"popup//popup.html"
+},
+"content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self'"
+},
+"permissions":["storage","tabs"]
 }
