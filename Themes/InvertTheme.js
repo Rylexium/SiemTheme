@@ -349,7 +349,7 @@ function setDarkThemeSiemV25() {
 }
 
 function InvertTheme(version){
-        document.body.style.filter = invert//вырубить и получиться контрастный
+    document.body.style.filter = invert//вырубить и получиться контрастный
     if(version == 25)
         setDarkThemeSiemV25()
     else
